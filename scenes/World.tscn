@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cunjdb63oyha"]
+[gd_scene load_steps=3 format=3 uid="uid://cunjdb63oyha"]
 
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_42b4e"]
+[ext_resource type="TileSet" uid="uid://wwsptc10vqkx" path="res://reso/tileset.tres" id="2_5v0jk"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_42b4e")
 
 [node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_5v0jk")
 format = 2
