@@ -11,8 +11,8 @@ func _physics_process(delta):
 	velocity.y = Input.get_axis('ui_up', 'ui_down') * move_speed
 	
 	if velocity != Vector2.ZERO:
-		playback.set('parameters/idle/blend_position', velocity)
-		playback.set('parameters/walk/blend_position', velocity)
+		tree.set('parameters/idle/blend_position', velocity)
+		tree.set('parameters/walk/blend_position', velocity)
 		
 		playback.travel('walk')
 	else:
