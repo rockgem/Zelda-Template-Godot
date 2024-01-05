@@ -703,8 +703,6 @@ texture = ExtResource("2_3mjnn")
 2:16/0 = 0
 3:16/0 = 0
 4:16/0 = 0
-5:16/0 = 0
-6:16/0 = 0
 7:16/0 = 0
 11:16/0 = 0
 12:16/0 = 0
@@ -721,8 +719,6 @@ texture = ExtResource("2_3mjnn")
 2:17/0 = 0
 3:17/0 = 0
 4:17/0 = 0
-5:17/0 = 0
-6:17/0 = 0
 7:17/0 = 0
 9:17/0 = 0
 10:17/0 = 0
@@ -1293,6 +1289,8 @@ texture = ExtResource("2_3mjnn")
 7:34/0 = 0
 0:35/0 = 0
 1:35/0 = 0
+5:16/size_in_atlas = Vector2i(2, 2)
+5:16/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rd8pr"]
 texture = ExtResource("3_wbxlh")
