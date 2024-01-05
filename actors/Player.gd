@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var move_speed = 80.0
 
+@onready var cam = $Camera2D
 @onready var tree = $AnimationTree
 @onready var playback = tree.get("parameters/playback")
 
