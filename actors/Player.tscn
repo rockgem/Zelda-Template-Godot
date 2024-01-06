@@ -246,6 +246,8 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(-228, -193)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_11n22")
 
 [node name="Camera2D" type="Camera2D" parent="."]

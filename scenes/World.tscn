@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cunjdb63oyha"]
+[gd_scene load_steps=5 format=3 uid="uid://cunjdb63oyha"]
 
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_42b4e"]
 [ext_resource type="TileSet" uid="uid://wwsptc10vqkx" path="res://reso/tileset.tres" id="2_5v0jk"]
 [ext_resource type="PackedScene" uid="uid://t2syaypmbg8d" path="res://actors/Player.tscn" id="3_uav86"]
+[ext_resource type="PackedScene" uid="uid://cjlyt4fuldk2b" path="res://actors/components/Portal.tscn" id="4_sdbua"]
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
@@ -31,3 +32,11 @@ position = Vector2(241, 150)
 
 [node name="BR" type="Node2D" parent="."]
 position = Vector2(543, 287)
+
+[node name="Portal" parent="." instance=ExtResource("4_sdbua")]
+position = Vector2(7, 134)
+towards = "World3"
+
+[node name="Portal2" parent="." instance=ExtResource("4_sdbua")]
+position = Vector2(534, 246)
+towards = "World2"
