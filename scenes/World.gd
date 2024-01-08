@@ -1,9 +1,11 @@
 extends Node2D
 
 
-@onready var player = $Sort/Player
+var player
 
 func _ready():
+	player = get_tree().get_nodes_in_group('Player')[0]
+	
 	if ManagerGame.current_location != name and ManagerGame.current_location != '':
 		for portal in get_tree().get_nodes_in_group('Portal'):
 			if portal.towards == ManagerGame.current_location:
