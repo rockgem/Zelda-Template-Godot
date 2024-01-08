@@ -15,7 +15,7 @@ func _ready():
 
 
 func _notification(what):
-	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+	if what == NOTIFICATION_APPLICATION_PAUSED or what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_game()
 
 
@@ -26,12 +26,15 @@ func get_data(path) -> Dictionary:
 	var j = JSON.new()
 	j.parse(f.get_as_text())
 	data = j.data
+	f.close()
 	
 	return data
 
 
 func save_game():
-	pass
+	var f = FileAccess.open(save_path, FileAccess.WRITE)
+	f.store_string(JSON.stringify(player_data))
+	f.close()
 
 
 func load_game():

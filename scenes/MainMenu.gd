@@ -2,7 +2,8 @@ extends Control
 
 
 func _ready():
-	pass
+	if FileAccess.file_exists(ManagerGame.save_path):
+		$VBoxContainer/Continue.disabled = false
 
 
 func _on_new_game_pressed():
