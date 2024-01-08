@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://ch38mcgmi4qyk"]
+
+[ext_resource type="Texture2D" uid="uid://bk0m3v6kwsswp" path="res://assets/GUI.png" id="1_gis6e"]
+
+[resource]
+texture = ExtResource("1_gis6e")
+texture_margin_left = 9.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 9.0
+region_rect = Rect2(48, 32, 48, 16)

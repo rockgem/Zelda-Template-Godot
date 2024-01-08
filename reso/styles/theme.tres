@@ -1,4 +1,7 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cdeu3w3djqyxm"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cdeu3w3djqyxm"]
+
+[ext_resource type="StyleBox" uid="uid://ch38mcgmi4qyk" path="res://reso/styles/bar.tres" id="1_uqro8"]
+[ext_resource type="StyleBox" uid="uid://cv5qhtr5boyjd" path="res://reso/styles/bar_over.tres" id="2_chru1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8s0u"]
 bg_color = Color(0.6, 0.6, 0.6, 0.545098)
@@ -14,3 +17,5 @@ Button/styles/focus = SubResource("StyleBoxEmpty_1rp4v")
 Button/styles/hover = SubResource("StyleBoxFlat_hi8lw")
 Button/styles/normal = SubResource("StyleBoxFlat_hi8lw")
 Button/styles/pressed = SubResource("StyleBoxFlat_hi8lw")
+ProgressBar/styles/background = ExtResource("1_uqro8")
+ProgressBar/styles/fill = ExtResource("2_chru1")
