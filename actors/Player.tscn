@@ -279,3 +279,9 @@ tree_root = SubResource("AnimationNodeStateMachine_2n60b")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(-0.0663266, 0.235669)
 parameters/walk/blend_position = Vector2(-0.145408, 0.10828)
+
+[node name="Aim" type="Node2D" parent="."]
+
+[node name="RayCast2D" type="RayCast2D" parent="Aim"]
+rotation = -1.5708
+target_position = Vector2(0, 30)

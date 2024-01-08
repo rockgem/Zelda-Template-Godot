@@ -1,0 +1,8 @@
+{
+	"gold": 50,
+	"hp": 15,
+	"hp_max": 15,
+	"mana": 15,
+	"mana_max": 15,
+	"current_location": '',
+}
