@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn2v3ojm86n34"]
+
+[ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_kg4a7"]
+[ext_resource type="Texture2D" uid="uid://dihsp3vqg455x" path="res://assets/bgs/landscape_1.png" id="1_t8yy8"]
+[ext_resource type="PackedScene" uid="uid://c57i2dkd78g6f" path="res://actors/ui/CustomButton.tscn" id="2_ga5tp"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kg4a7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -12.0
+offset_right = 226.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t8yy8")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 91.0
+offset_right = 104.0
+offset_bottom = 151.0
+alignment = 1
+
+[node name="Continue" parent="VBoxContainer" instance=ExtResource("2_ga5tp")]
+layout_mode = 2
+text = "Continue"
+
+[node name="NewGame" parent="VBoxContainer" instance=ExtResource("2_ga5tp")]
+layout_mode = 2
+text = "New Game"
+
+[node name="Settings" parent="VBoxContainer" instance=ExtResource("2_ga5tp")]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" parent="VBoxContainer" instance=ExtResource("2_ga5tp")]
+layout_mode = 2
+text = "Quit"
