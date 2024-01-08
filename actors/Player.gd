@@ -5,16 +5,27 @@ var move_speed = 80.0
 @onready var cam = $Camera2D
 @onready var tree = $AnimationTree
 @onready var playback = tree.get("parameters/playback")
-@onready var cast = $RayCast2D
+@onready var cast = $Aim/RayCast2D
+
+
+var is_attacking = false
+
+func _unhandled_input(event):
+	if Input.is_action_just_pressed("attack"):
+		attack()
 
 
 func _physics_process(delta):
+	if is_attacking:
+		return
+	
 	velocity.x = Input.get_axis('ui_left', 'ui_right') * move_speed
 	velocity.y = Input.get_axis('ui_up', 'ui_down') * move_speed
 	
 	if velocity != Vector2.ZERO:
 		tree.set('parameters/idle/blend_position', velocity)
 		tree.set('parameters/walk/blend_position', velocity)
+		tree.set('parameters/attack/blend_position', velocity)
 		
 		$Aim.rotation = velocity.angle()
 		
@@ -25,3 +36,13 @@ func _physics_process(delta):
 	velocity.normalized()
 	
 	move_and_slide()
+
+
+func attack():
+	is_attacking = true
+	
+	playback.travel('attack')
+
+
+func _on_animation_tree_animation_finished(anim_name):
+	is_attacking = false
