@@ -14,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_kg4a7")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,6 +40,7 @@ alignment = 1
 
 [node name="Continue" parent="VBoxContainer" instance=ExtResource("2_ga5tp")]
 layout_mode = 2
+disabled = true
 text = "Continue"
 
 [node name="NewGame" parent="VBoxContainer" instance=ExtResource("2_ga5tp")]
@@ -52,3 +54,7 @@ text = "Settings"
 [node name="Quit" parent="VBoxContainer" instance=ExtResource("2_ga5tp")]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

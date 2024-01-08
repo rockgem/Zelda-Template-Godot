@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdqbdlteo5wj4"]
+
+[ext_resource type="Script" path="res://scenes/LoadingScreen.gd" id="1_ax8c7"]
+[ext_resource type="Texture2D" uid="uid://dihsp3vqg455x" path="res://assets/bgs/landscape_1.png" id="1_yw5jw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jdihc"]
+bg_color = Color(0.356863, 0.356863, 0.356863, 0.407843)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy3a6"]
+bg_color = Color(0.34902, 0.505882, 0.447059, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ax8c7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.427451, 0.427451, 0.427451, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -226.0
+offset_top = -12.0
+offset_right = 226.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yw5jw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -9.0
+offset_right = 79.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_jdihc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_oy3a6")
+value = 85.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -18.0
+offset_right = 50.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "Loading..."
+horizontal_alignment = 1
