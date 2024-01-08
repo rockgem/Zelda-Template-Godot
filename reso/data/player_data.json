@@ -5,4 +5,5 @@
 	"mana": 15,
 	"mana_max": 15,
 	"current_location": "",
+	"inventory": {},
 }

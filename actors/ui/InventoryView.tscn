@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://52qy853nmdjc"]
+
+[ext_resource type="PackedScene" uid="uid://b8l8jexbrq2wp" path="res://actors/ui/PopupBase.tscn" id="1_xs2nd"]
+[ext_resource type="Script" path="res://actors/ui/InventoryView.gd" id="2_vvsl0"]
+
+[node name="PopupBase" instance=ExtResource("1_xs2nd")]
+
+[node name="Panel" type="Panel" parent="." index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+offset_top = 13.0
+offset_right = -93.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_vvsl0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = -23.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="GridContainer" parent="Panel/ScrollContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3

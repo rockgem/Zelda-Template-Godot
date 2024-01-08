@@ -3,7 +3,7 @@
 		"hp": 5,
 		"gold_on_kill": [3,6],
 		"drops": [
-			["Small HP Potion", 70],
+			["small_hp_potion", 70],
 		],
 	}
 }

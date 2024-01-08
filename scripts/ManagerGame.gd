@@ -9,12 +9,14 @@ var current_location = ''
 
 var player_data = {}
 var monsters_data = {}
+var items_data = {}
 
 var global_player_ref = null
 var global_world_ref = null
 
 func _ready():
 	monsters_data = get_data("res://reso/data/monsters_data.json")
+	items_data = get_data("res://reso/data/items_data.json")
 
 
 func _notification(what):
@@ -42,3 +44,26 @@ func save_game():
 
 func load_game():
 	pass
+
+
+func put_item_to_inv(item_id, amount = 1):
+	var item_data = items_data[item_id]
+	
+	if player_data['inventory'].has(item_id):
+		player_data['inventory'][item_id]['amount'] += 1
+	else:
+		player_data['inventory'][item_id] = items_data
+
+
+
+
+
+
+
+
+
+
+
+
+
+

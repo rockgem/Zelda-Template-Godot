@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqcxck8htraew"]
 
-[ext_resource type="Texture2D" uid="uid://b21pd7wlp5b5y" path="res://reso/icons/items/Sword.tres" id="1_1a75c"]
+[ext_resource type="Texture2D" uid="uid://b21pd7wlp5b5y" path="res://reso/icons/items/sword.tres" id="1_1a75c"]
 [ext_resource type="Script" path="res://actors/Item.gd" id="1_ww4y4"]
 [ext_resource type="PackedScene" uid="uid://bxn0xd8ywv2ad" path="res://actors/components/Interactable.tscn" id="3_teaxg"]
 
