@@ -7,8 +7,13 @@ var move_speed = 80.0
 @onready var playback = tree.get("parameters/playback")
 @onready var cast = $Aim/RayCast2D
 
-
+var can_move = true
 var is_attacking = false
+
+
+func _ready():
+	ManagerGame.global_player_ref = self
+
 
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("attack"):
@@ -17,6 +22,8 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	if is_attacking:
+		return
+	if can_move == false:
 		return
 	
 	velocity.x = Input.get_axis('ui_left', 'ui_right') * move_speed

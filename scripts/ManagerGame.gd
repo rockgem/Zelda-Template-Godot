@@ -9,6 +9,7 @@ var current_location = ''
 
 var player_data = {}
 
+var global_player_ref = null
 
 func _ready():
 	pass

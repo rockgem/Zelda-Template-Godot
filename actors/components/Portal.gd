@@ -7,6 +7,7 @@ var is_active = true
 
 func _on_body_entered(body):
 	if is_active:
+		ManagerGame.global_player_ref.can_move = false
 		FadeFx.fade()
 		
 		await FadeFx.fade_in
