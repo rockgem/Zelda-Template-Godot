@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs1hd7tiltgtq"]
+[gd_scene load_steps=4 format=3 uid="uid://cs1hd7tiltgtq"]
 
 [ext_resource type="Script" path="res://actors/Monster.gd" id="1_7oakd"]
 [ext_resource type="Texture2D" uid="uid://cbay72ckxvfx5" path="res://assets/character.png" id="2_gp8n3"]
+[ext_resource type="PackedScene" uid="uid://cvwupkrx5ovnq" path="res://actors/components/Hurtbox.tscn" id="3_7mmbc"]
 
 [node name="Monster" type="Node2D"]
 script = ExtResource("1_7oakd")
@@ -12,3 +13,6 @@ position = Vector2(0, -9)
 texture = ExtResource("2_gp8n3")
 hframes = 9
 vframes = 8
+
+[node name="Hurtbox" parent="." instance=ExtResource("3_7mmbc")]
+position = Vector2(0, -7)
