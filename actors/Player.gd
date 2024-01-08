@@ -39,6 +39,10 @@ func _physics_process(delta):
 
 
 func attack():
+	var obj = cast.get_collider()
+	if obj:
+		obj.take_damage(1)
+	
 	is_attacking = true
 	
 	playback.travel('attack')

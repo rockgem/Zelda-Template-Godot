@@ -74,6 +74,7 @@ attack={
 2d_physics/layer_2="PlayerBody"
 2d_physics/layer_3="PortalArea"
 2d_physics/layer_4="Hurtbox"
+2d_physics/layer_5="PlayerRaycast"
 
 [rendering]
 

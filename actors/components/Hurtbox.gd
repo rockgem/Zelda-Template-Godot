@@ -9,7 +9,11 @@ var hp: int = 5
 
 
 
-func hit(damage: int = 0):
+func take_damage(damage: int = 0):
+	var df = load("res://actors/DamageFloater.tscn").instantiate()
+	df.get_node('Label').text = str(damage)
+	add_child(df)
+	
 	hp -= damage
 	
 	if hp <= 0:
@@ -19,7 +23,7 @@ func hit(damage: int = 0):
 
 
 func _on_area_entered(area):
-	hit()
+	pass
 
 
 func _on_body_entered(body):
