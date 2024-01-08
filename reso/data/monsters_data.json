@@ -1,0 +1,9 @@
+{
+	"Slime":{
+		"hp": 5,
+		"gold_on_kill": [3,6],
+		"drops": [
+			["Small HP Potion", 70],
+		],
+	}
+}

@@ -46,12 +46,16 @@ position = Vector2(241, 150)
 
 [node name="Monster" parent="Sort" instance=ExtResource("5_ui1hj")]
 position = Vector2(228, 81)
+id = "Slime"
 
 [node name="Monster2" parent="Sort" instance=ExtResource("5_ui1hj")]
 position = Vector2(472, 97)
+id = "Slime"
 
 [node name="Monster3" parent="Sort" instance=ExtResource("5_ui1hj")]
 position = Vector2(408, 182)
+id = "Slime"
 
 [node name="Monster4" parent="Sort" instance=ExtResource("5_ui1hj")]
 position = Vector2(151, 227)
+id = "Slime"

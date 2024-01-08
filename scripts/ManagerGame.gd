@@ -8,11 +8,13 @@ var current_location = ''
 
 
 var player_data = {}
+var monsters_data = {}
 
 var global_player_ref = null
+var global_world_ref = null
 
 func _ready():
-	pass
+	monsters_data = get_data("res://reso/data/monsters_data.json")
 
 
 func _notification(what):
