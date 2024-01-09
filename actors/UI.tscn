@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://df5qfikesj8sv"]
+[gd_scene load_steps=3 format=3 uid="uid://df5qfikesj8sv"]
 
 [ext_resource type="Script" path="res://actors/UI.gd" id="1_fmsof"]
+[ext_resource type="PackedScene" uid="uid://c57i2dkd78g6f" path="res://actors/ui/CustomButton.tscn" id="2_mjuc2"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,3 +12,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_fmsof")
+
+[node name="Popup" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="Bag" parent="." instance=ExtResource("2_mjuc2")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -24.0
+offset_right = 43.0
+offset_bottom = -4.0
+grow_vertical = 0
+text = "bag"
+
+[connection signal="pressed" from="Bag" to="." method="_on_bag_pressed"]

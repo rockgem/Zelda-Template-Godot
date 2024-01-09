@@ -47,12 +47,13 @@ func load_game():
 
 
 func put_item_to_inv(item_id, amount = 1):
-	var item_data = items_data[item_id]
+	var item_data = items_data[item_id].duplicate()
 	
 	if player_data['inventory'].has(item_id):
 		player_data['inventory'][item_id]['amount'] += 1
 	else:
-		player_data['inventory'][item_id] = items_data
+		item_data['amount'] = 1
+		player_data['inventory'][item_id] = item_data
 
 
 
