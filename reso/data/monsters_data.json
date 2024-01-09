@@ -1,6 +1,6 @@
 {
 	"Slime":{
-		"hp": 1,
+		"hp": 4,
 		"gold_on_kill": [3,6],
 		"drops": [
 			["small_hp_potion", 100],

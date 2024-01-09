@@ -15,11 +15,12 @@ var towards = Vector2.ZERO
 func _ready():
 	monster_data = ManagerGame.monsters_data[id]
 	
+	$Hurtbox.hp = monster_data['hp']
+	
 	$WanderTimer.start(randf_range(0.5, 2.0))
 
 
 func _physics_process(delta):
-	return
 	if is_moving:
 		var dif = global_position.direction_to(towards)
 		global_position += dif * move_speed * delta
