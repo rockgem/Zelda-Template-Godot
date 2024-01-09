@@ -5,7 +5,7 @@ signal hurt
 signal zero
 
 
-var hp: int = 5
+var hp: int = -1
 
 
 

@@ -1,9 +1,9 @@
 {
 	"Slime":{
-		"hp": 5,
+		"hp": 1,
 		"gold_on_kill": [3,6],
 		"drops": [
-			["small_hp_potion", 70],
+			["small_hp_potion", 100],
 		],
 	}
 }

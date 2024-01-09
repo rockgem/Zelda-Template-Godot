@@ -19,6 +19,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	return
 	if is_moving:
 		var dif = global_position.direction_to(towards)
 		global_position += dif * move_speed * delta
@@ -28,7 +29,7 @@ func _physics_process(delta):
 
 
 func _on_hurtbox_hurt():
-	pass # Replace with function body.
+	return
 
 
 func _on_hurtbox_zero():
