@@ -1,10 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cunjdb63oyha"]
+[gd_scene load_steps=10 format=3 uid="uid://cunjdb63oyha"]
 
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_42b4e"]
 [ext_resource type="TileSet" uid="uid://wwsptc10vqkx" path="res://reso/tileset.tres" id="2_5v0jk"]
+[ext_resource type="PackedScene" uid="uid://dlhr0uleicj10" path="res://actors/components/WanderArea.tscn" id="3_k1hoo"]
 [ext_resource type="PackedScene" uid="uid://t2syaypmbg8d" path="res://actors/Player.tscn" id="3_uav86"]
 [ext_resource type="PackedScene" uid="uid://cjlyt4fuldk2b" path="res://actors/components/Portal.tscn" id="4_sdbua"]
 [ext_resource type="PackedScene" uid="uid://cs1hd7tiltgtq" path="res://actors/Monster.tscn" id="5_ui1hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxxl8"]
+size = Vector2(188, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q1m8k"]
+size = Vector2(188, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mylva"]
+size = Vector2(134, 140)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_42b4e")
@@ -21,6 +31,24 @@ towards = "World3"
 [node name="Portal2" parent="." instance=ExtResource("4_sdbua")]
 position = Vector2(534, 246)
 towards = "World2"
+
+[node name="WanderArea" parent="." instance=ExtResource("3_k1hoo")]
+position = Vector2(255, 87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WanderArea"]
+shape = SubResource("RectangleShape2D_fxxl8")
+
+[node name="WanderArea2" parent="." instance=ExtResource("3_k1hoo")]
+position = Vector2(224, 211)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WanderArea2"]
+shape = SubResource("RectangleShape2D_q1m8k")
+
+[node name="WanderArea3" parent="." instance=ExtResource("3_k1hoo")]
+position = Vector2(434, 145)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WanderArea3"]
+shape = SubResource("RectangleShape2D_mylva")
 
 [node name="Sort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -44,18 +72,22 @@ layer_2/tile_data = PackedInt32Array(65538, 327681, 16, 65540, 327681, 16, 65542
 [node name="Player" parent="Sort" instance=ExtResource("3_uav86")]
 position = Vector2(241, 150)
 
-[node name="Monster" parent="Sort" instance=ExtResource("5_ui1hj")]
+[node name="Monster" parent="Sort" node_paths=PackedStringArray("wander_area") instance=ExtResource("5_ui1hj")]
 position = Vector2(228, 81)
 id = "Slime"
+wander_area = NodePath("../../WanderArea")
 
-[node name="Monster2" parent="Sort" instance=ExtResource("5_ui1hj")]
+[node name="Monster2" parent="Sort" node_paths=PackedStringArray("wander_area") instance=ExtResource("5_ui1hj")]
 position = Vector2(472, 97)
 id = "Slime"
+wander_area = NodePath("../../WanderArea3")
 
-[node name="Monster3" parent="Sort" instance=ExtResource("5_ui1hj")]
+[node name="Monster3" parent="Sort" node_paths=PackedStringArray("wander_area") instance=ExtResource("5_ui1hj")]
 position = Vector2(408, 182)
 id = "Slime"
+wander_area = NodePath("../../WanderArea3")
 
-[node name="Monster4" parent="Sort" instance=ExtResource("5_ui1hj")]
+[node name="Monster4" parent="Sort" node_paths=PackedStringArray("wander_area") instance=ExtResource("5_ui1hj")]
 position = Vector2(151, 227)
 id = "Slime"
+wander_area = NodePath("../../WanderArea2")

@@ -79,5 +79,9 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="WanderTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="zero" from="Hurtbox" to="." method="_on_hurtbox_zero"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]

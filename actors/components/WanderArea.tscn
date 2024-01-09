@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlhr0uleicj10"]
+
+[ext_resource type="Script" path="res://actors/components/WanderArea.gd" id="1_3lkro"]
+
+[node name="WanderArea" type="Area2D"]
+script = ExtResource("1_3lkro")
