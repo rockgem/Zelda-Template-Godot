@@ -10,9 +10,13 @@ var move_speed = 80.0
 var can_move = true
 var is_attacking = false
 
+var hp = 5
+
 
 func _ready():
 	ManagerGame.global_player_ref = self
+	
+	$Hurtbox.hp = hp
 
 
 func _unhandled_input(event):
@@ -45,6 +49,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func death():
+	pass
+
+
 func attack():
 	var obj = cast.get_collider()
 	if obj:
@@ -56,5 +64,14 @@ func attack():
 	playback.travel('attack')
 
 
+func receive_damage(damage = 1):
+	print('player took a hit!')
+	$Hurtbox.take_damage(damage)
+
+
 func _on_animation_tree_animation_finished(anim_name):
 	is_attacking = false
+
+
+func _on_hurtbox_zero():
+	death()

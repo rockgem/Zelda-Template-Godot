@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://t2syaypmbg8d"]
+[gd_scene load_steps=43 format=3 uid="uid://t2syaypmbg8d"]
 
 [ext_resource type="Script" path="res://actors/entities/Player.gd" id="1_11n22"]
 [ext_resource type="Texture2D" uid="uid://cbay72ckxvfx5" path="res://assets/character.png" id="1_g0vi7"]
 [ext_resource type="PackedScene" uid="uid://df5qfikesj8sv" path="res://actors/UI.tscn" id="3_js0c5"]
+[ext_resource type="PackedScene" uid="uid://cvwupkrx5ovnq" path="res://actors/components/Hurtbox.tscn" id="4_sr63g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgm07"]
 radius = 4.0
@@ -392,6 +393,10 @@ parameters/attack/blend_position = Vector2(0, 0.963964)
 parameters/idle/blend_position = Vector2(-0.0663266, 0.235669)
 parameters/walk/blend_position = Vector2(-0.145408, 0.10828)
 
+[node name="Hurtbox" parent="." instance=ExtResource("4_sr63g")]
+collision_layer = 0
+collision_mask = 0
+
 [node name="Aim" type="Node2D" parent="."]
 
 [node name="RayCast2D" type="RayCast2D" parent="Aim"]
@@ -402,3 +407,4 @@ hit_from_inside = true
 collide_with_areas = true
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="zero" from="Hurtbox" to="." method="_on_hurtbox_zero"]

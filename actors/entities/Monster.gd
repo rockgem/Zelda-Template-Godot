@@ -37,8 +37,11 @@ func _physics_process(delta):
 			state = STATE.IDLE
 	elif state == STATE.CHASING:
 		var dif = global_position.direction_to(ManagerGame.global_player_ref.global_position)
-		if global_position.distance_to(ManagerGame.global_player_ref.global_position) > 1.0:
+		if global_position.distance_to(ManagerGame.global_player_ref.global_position) > 16.0:
 			global_position += dif * move_speed * delta
+		
+		if global_position.distance_to(ManagerGame.global_player_ref.global_position) < 18.0 and $AttackTimer.is_stopped():
+			$AttackTimer.start()
 		
 		if global_position.distance_to(inital_station_position) > 64:
 			state = STATE.RETREAT
@@ -52,7 +55,15 @@ func _physics_process(delta):
 			_on_wander_timer_timeout()
 
 
+func attack():
+	if global_position.distance_to(ManagerGame.global_player_ref.global_position) < 18.0:
+		ManagerGame.global_player_ref.receive_damage(1)
+		
+		$AttackTimer.start()
+
+
 func _on_hurtbox_hurt():
+	$WanderTimer.stop()
 	inital_station_position = global_position
 	
 	state = STATE.CHASING
@@ -85,3 +96,7 @@ func _on_wander_timer_timeout():
 	wander()
 	
 	$WanderTimer.start(randf_range(3, 6))
+
+
+func _on_attack_timer_timeout():
+	attack()
