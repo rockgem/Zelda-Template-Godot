@@ -15,7 +15,9 @@ func _on_new_game_pressed():
 
 
 func _on_continue_pressed():
-	pass # Replace with function body.
+	ManagerGame.player_data = ManagerGame.get_data(ManagerGame.save_path)
+	
+	LoadingScreen.load_scene("res://scenes/World.tscn")
 
 
 func _on_quit_pressed():
