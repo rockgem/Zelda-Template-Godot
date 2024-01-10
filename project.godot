@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 ManagerGame="*res://scripts/ManagerGame.gd"
 LoadingScreen="*res://scenes/LoadingScreen.tscn"
 FadeFx="*res://actors/FadeFX.tscn"
+Bgm="*res://sounds/bgm/BGM.tscn"
+Sfx="*res://sounds/sfx/SFX.tscn"
 
 [display]
 
