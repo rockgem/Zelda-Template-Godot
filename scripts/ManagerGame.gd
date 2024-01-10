@@ -1,5 +1,7 @@
 extends Node
 
+signal pop_to_ui(instance, stack)
+
 var save_path = 'user://data.save'
 
 # ===========================

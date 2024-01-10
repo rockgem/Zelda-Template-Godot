@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cs1hd7tiltgtq"]
 
-[ext_resource type="Script" path="res://actors/Monster.gd" id="1_7oakd"]
+[ext_resource type="Script" path="res://actors/entities/Monster.gd" id="1_7oakd"]
 [ext_resource type="Texture2D" uid="uid://dthkfpkuygw4n" path="res://assets/sprites/mobs/slime.png" id="2_fpfyo"]
 [ext_resource type="PackedScene" uid="uid://cvwupkrx5ovnq" path="res://actors/components/Hurtbox.tscn" id="3_7mmbc"]
 

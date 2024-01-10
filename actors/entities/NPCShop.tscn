@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://yhu1pbhujek"]
+
+[ext_resource type="Script" path="res://actors/entities/NPCShop.gd" id="1_eppwn"]
+[ext_resource type="Texture2D" uid="uid://cbay72ckxvfx5" path="res://assets/character.png" id="1_jou24"]
+[ext_resource type="PackedScene" uid="uid://bxn0xd8ywv2ad" path="res://actors/components/Interactable.tscn" id="3_mpqee"]
+
+[node name="NpcShop" type="Node2D"]
+script = ExtResource("1_eppwn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.737255, 0.368627, 0.384314, 1)
+position = Vector2(0, -8)
+texture = ExtResource("1_jou24")
+hframes = 9
+vframes = 8
+
+[node name="Interactable" parent="." instance=ExtResource("3_mpqee")]
+position = Vector2(0, -3)
+
+[connection signal="interacted" from="Interactable" to="." method="_on_interactable_interacted"]

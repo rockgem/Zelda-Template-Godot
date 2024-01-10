@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_lnmnn"]
 [ext_resource type="TileSet" uid="uid://wwsptc10vqkx" path="res://reso/tileset.tres" id="2_5tb5n"]
-[ext_resource type="PackedScene" uid="uid://t2syaypmbg8d" path="res://actors/Player.tscn" id="2_isj7t"]
+[ext_resource type="PackedScene" uid="uid://t2syaypmbg8d" path="res://actors/entities/Player.tscn" id="2_isj7t"]
 [ext_resource type="PackedScene" uid="uid://cjlyt4fuldk2b" path="res://actors/components/Portal.tscn" id="4_bcaw8"]
 
 [node name="World2" type="Node2D"]

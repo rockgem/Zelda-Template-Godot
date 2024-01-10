@@ -4,13 +4,21 @@ extends Node2D
 
 @export var wander_area: WanderArea
 
-var move_speed = 60.0
+enum STATE {
+	IDLE,
+	MOVING,
+	ATTACKING,
+	CHASING,
+	RETREAT
+}
+
+var move_speed = 40.0
 var monster_data = {}
 
-var is_moving = false
-var is_attacking = false
+var state = STATE.IDLE
 
 var towards = Vector2.ZERO
+var inital_station_position = Vector2.ZERO
 
 func _ready():
 	monster_data = ManagerGame.monsters_data[id]
@@ -21,16 +29,33 @@ func _ready():
 
 
 func _physics_process(delta):
-	if is_moving:
+	if state == STATE.MOVING:
 		var dif = global_position.direction_to(towards)
 		global_position += dif * move_speed * delta
 		
 		if global_position.distance_to(towards) < 1.0:
-			is_moving = false
+			state = STATE.IDLE
+	elif state == STATE.CHASING:
+		var dif = global_position.direction_to(ManagerGame.global_player_ref.global_position)
+		if global_position.distance_to(ManagerGame.global_player_ref.global_position) > 1.0:
+			global_position += dif * move_speed * delta
+		
+		if global_position.distance_to(inital_station_position) > 64:
+			state = STATE.RETREAT
+	elif state == STATE.RETREAT:
+		var dif = global_position.direction_to(inital_station_position)
+		global_position += dif * move_speed * delta
+		
+		if global_position.distance_to(inital_station_position) < 1.0:
+			state = STATE.IDLE
+			
+			_on_wander_timer_timeout()
 
 
 func _on_hurtbox_hurt():
-	return
+	inital_station_position = global_position
+	
+	state = STATE.CHASING
 
 
 func _on_hurtbox_zero():
@@ -47,9 +72,8 @@ func _on_hurtbox_zero():
 
 
 func go_to(g_pos):
+	state = STATE.MOVING
 	towards = g_pos
-	
-	is_moving = true
 
 
 func wander():
