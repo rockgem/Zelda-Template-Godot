@@ -2,17 +2,15 @@
 
 [ext_resource type="StyleBox" uid="uid://cyo6roaod746" path="res://reso/styles/button_hover.tres" id="1_pdm75"]
 [ext_resource type="StyleBox" uid="uid://ch38mcgmi4qyk" path="res://reso/styles/bar.tres" id="1_uqro8"]
+[ext_resource type="StyleBox" uid="uid://dujbk2iow4ov2" path="res://reso/styles/button_disabled.tres" id="1_wgy5a"]
 [ext_resource type="StyleBox" uid="uid://cv5qhtr5boyjd" path="res://reso/styles/bar_over.tres" id="2_chru1"]
 [ext_resource type="StyleBox" uid="uid://o7oamlvv61do" path="res://reso/styles/button_normal.tres" id="2_fustq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8s0u"]
-bg_color = Color(0.6, 0.6, 0.6, 0.545098)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1rp4v"]
 
 [resource]
 Button/font_sizes/font_size = 8
-Button/styles/disabled = SubResource("StyleBoxFlat_b8s0u")
+Button/styles/disabled = ExtResource("1_wgy5a")
 Button/styles/focus = SubResource("StyleBoxEmpty_1rp4v")
 Button/styles/hover = ExtResource("1_pdm75")
 Button/styles/normal = ExtResource("2_fustq")
