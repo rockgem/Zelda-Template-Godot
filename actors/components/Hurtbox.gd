@@ -10,6 +10,8 @@ var hp: int = -1
 
 
 func take_damage(damage: int = 0):
+	Sfx.play_sound('Hit')
+	
 	var df = load("res://actors/DamageFloater.tscn").instantiate()
 	df.get_node('Label').text = str(damage)
 	add_child(df)

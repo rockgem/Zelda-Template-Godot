@@ -52,6 +52,7 @@ func attack():
 	
 	is_attacking = true
 	
+	Sfx.play_sound('Slash')
 	playback.travel('attack')
 
 

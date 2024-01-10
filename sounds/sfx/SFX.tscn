@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ldi8fqa7vcit"]
+[gd_scene load_steps=4 format=3 uid="uid://ldi8fqa7vcit"]
 
 [ext_resource type="Script" path="res://sounds/sfx/SFX.gd" id="1_0mhxt"]
 [ext_resource type="AudioStream" uid="uid://tbboys0vfe45" path="res://sounds/sfx/Slash3.wav" id="2_ti1l4"]
+[ext_resource type="AudioStream" uid="uid://clxkpby0unt2n" path="res://sounds/sfx/Hit5.wav" id="3_hqdng"]
 
 [node name="Sfx" type="Node"]
 script = ExtResource("1_0mhxt")
 
 [node name="Slash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_ti1l4")
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_hqdng")
