@@ -2,11 +2,51 @@
 	"small_hp_potion": {
 		"id": "small_hp_potion",
 		"name": "Small HP Potion",
-		"price": 6,
+		"price": 6
 	},
 	"large_hp_potion": {
 		"id": "large_hp_potion",
 		"name": "Large HP Potion",
-		"price": 25,
+		"price": 25
+	},
+	"wooden_sword": {
+		"id": "wooden_sword",
+		"name": "Wooden Sword",
+		"price": 25
+	},
+	"iron_dagger": {
+		"id": "iron_dagger",
+		"name": "Iron Dagger",
+		"price": 25
+	},
+	"buckler": {
+		"id": "buckler",
+		"name": "Buckler",
+		"price": 25
+	},
+	"bomb": {
+		"id": "bomb",
+		"name": "Bomb",
+		"price": 25
+	},
+	"noob_helm": {
+		"id": "noob_helm",
+		"name": "Noob Helm",
+		"price": 25
+	},
+	"noob_armor": {
+		"id": "noob_armor",
+		"name": "Noob Armor",
+		"price": 25
+	},
+	"noob_pants": {
+		"id": "noob_pants",
+		"name": "Noob Pants",
+		"price": 25
+	},
+	"noob_boots": {
+		"id": "noob_boots",
+		"name": "Noob Boots",
+		"price": 25
 	}
 }

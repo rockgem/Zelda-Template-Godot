@@ -1,5 +1,9 @@
 {
 	"items": [
-		"large_hp_potion"
+		"large_hp_potion",
+		"noob_helm",
+		"noob_armor",
+		"noob_pants",
+		"noob_boots",
 	]
 }

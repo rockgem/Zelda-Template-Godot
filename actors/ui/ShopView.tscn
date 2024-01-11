@@ -13,7 +13,7 @@ anchor_right = 0.392
 anchor_bottom = 1.0
 offset_left = 14.0
 offset_top = 13.0
-offset_right = 0.0399933
+offset_right = 28.04
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -36,6 +36,9 @@ horizontal_scroll_mode = 0
 [node name="VBoxContainer" type="GridContainer" parent="Panel/ScrollContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 4
 
 [node name="Label" type="Label" parent="Panel" index="1"]
 layout_mode = 1
