@@ -14,6 +14,8 @@ var hp = 5
 
 
 func _ready():
+	ManagerGame.player_movement_activate.connect(on_player_movement_activate)
+	
 	ManagerGame.global_player_ref = self
 	
 	$Hurtbox.hp = hp
@@ -67,6 +69,10 @@ func attack():
 func receive_damage(damage = 1):
 	print('player took a hit!')
 	$Hurtbox.take_damage(damage)
+
+
+func on_player_movement_activate(b):
+	can_move = b
 
 
 func _on_animation_tree_animation_finished(anim_name):

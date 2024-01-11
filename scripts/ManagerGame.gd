@@ -1,6 +1,7 @@
 extends Node
 
 signal pop_to_ui(instance, stack)
+signal player_movement_activate(b)
 
 var save_path = 'user://data.save'
 

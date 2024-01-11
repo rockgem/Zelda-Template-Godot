@@ -6,6 +6,9 @@ extends Panel
 var items_data = {}
 
 func _ready():
+	$InfoPanel/Box.hide()
+	$InfoPanel/Buttons/Buy.hide()
+	
 	items_data = ManagerGame.get_data("res://reso/data/items_data.json")
 	var shop_items = ManagerGame.get_data("res://reso/data/shop_data.json")
 	
@@ -21,4 +24,9 @@ func _ready():
 
 
 func on_item_tapped(data):
-	pass
+	$InfoPanel/Box.show()
+	$InfoPanel/Buttons/Buy.show()
+	
+	$InfoPanel/Box/Icon.texture = load("res://reso/icons/items/%s.tres" % data['id'])
+	$InfoPanel/Box/ItemName.text = '%s' % data['name']
+	#$InfoPanel/Box/ItemType.text = ''
