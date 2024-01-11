@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://52qy853nmdjc"]
+[gd_scene load_steps=6 format=3 uid="uid://52qy853nmdjc"]
 
 [ext_resource type="PackedScene" uid="uid://b8l8jexbrq2wp" path="res://actors/ui/PopupBase.tscn" id="1_xs2nd"]
 [ext_resource type="StyleBox" uid="uid://bi7lgaj82vpp1" path="res://reso/styles/panel_brown.tres" id="2_b0aqe"]
 [ext_resource type="Script" path="res://actors/ui/InventoryView.gd" id="2_vvsl0"]
+[ext_resource type="PackedScene" uid="uid://di3mnembiktld" path="res://actors/ui/InvSlot.tscn" id="4_27xk8"]
+[ext_resource type="Texture2D" uid="uid://b21pd7wlp5b5y" path="res://reso/icons/items/sword.tres" id="5_wjuf5"]
 
 [node name="PopupBase" instance=ExtResource("1_xs2nd")]
 
@@ -11,9 +13,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 93.0
+offset_left = 18.0
 offset_top = 13.0
-offset_right = -93.0
+offset_right = -168.0
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -31,10 +33,59 @@ offset_right = -23.0
 offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="GridContainer" parent="Panel/ScrollContainer" index="0"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 5
+
+[node name="InvSlot" parent="Panel/ScrollContainer/VBoxContainer" index="0" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot2" parent="Panel/ScrollContainer/VBoxContainer" index="1" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot3" parent="Panel/ScrollContainer/VBoxContainer" index="2" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot4" parent="Panel/ScrollContainer/VBoxContainer" index="3" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot5" parent="Panel/ScrollContainer/VBoxContainer" index="4" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot6" parent="Panel/ScrollContainer/VBoxContainer" index="5" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot7" parent="Panel/ScrollContainer/VBoxContainer" index="6" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot8" parent="Panel/ScrollContainer/VBoxContainer" index="7" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot9" parent="Panel/ScrollContainer/VBoxContainer" index="8" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot10" parent="Panel/ScrollContainer/VBoxContainer" index="9" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot11" parent="Panel/ScrollContainer/VBoxContainer" index="10" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot12" parent="Panel/ScrollContainer/VBoxContainer" index="11" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot13" parent="Panel/ScrollContainer/VBoxContainer" index="12" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot14" parent="Panel/ScrollContainer/VBoxContainer" index="13" instance=ExtResource("4_27xk8")]
+layout_mode = 2
+
+[node name="InvSlot15" parent="Panel/ScrollContainer/VBoxContainer" index="14" instance=ExtResource("4_27xk8")]
+layout_mode = 2
 
 [node name="Label" type="Label" parent="Panel" index="1"]
 layout_mode = 1
@@ -48,3 +99,53 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 10
 text = "Inventory"
+
+[node name="InfoPanel" type="Panel" parent="Panel" index="2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -74.0
+offset_right = 148.0
+offset_bottom = 74.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_b0aqe")
+
+[node name="Box" type="VBoxContainer" parent="Panel/InfoPanel" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = -13.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="Panel/InfoPanel/Box" index="0"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("5_wjuf5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/InfoPanel/Box" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ItemName" type="Label" parent="Panel/InfoPanel/Box/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Item name"
+
+[node name="ItemType" type="Label" parent="Panel/InfoPanel/Box/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Common"

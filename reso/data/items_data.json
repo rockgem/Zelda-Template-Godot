@@ -1,9 +1,11 @@
 {
 	"small_hp_potion": {
+		"id": "small_hp_potion",
 		"name": "Small HP Potion",
 		"price": 6,
 	},
 	"large_hp_potion": {
+		"id": "large_hp_potion",
 		"name": "Large HP Potion",
 		"price": 25,
 	}
