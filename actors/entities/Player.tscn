@@ -354,7 +354,7 @@ states/idle/position = Vector2(345, 7)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_7hcdd")
 states/walk/position = Vector2(530, 7)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_gcyt1"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_27sfg"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_yulbe"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_fmv48"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_in61e"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_8sb2r"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_j48xe")]
-graph_offset = Vector2(-198, -112)
+graph_offset = Vector2(-200, -53)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
@@ -410,9 +410,5 @@ collision_mask = 8
 hit_from_inside = true
 collide_with_areas = true
 
-[node name="AttackTimer" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="zero" from="Hurtbox" to="." method="_on_hurtbox_zero"]
-[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

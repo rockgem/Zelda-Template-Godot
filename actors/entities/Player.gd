@@ -70,7 +70,6 @@ func attack():
 	playback.travel('attack')
 	
 	can_attack = false
-	$AttackTimer.start()
 
 
 func receive_damage(damage = 1):
@@ -84,11 +83,10 @@ func on_player_movement_activate(b):
 
 func _on_animation_tree_animation_finished(anim_name):
 	is_attacking = false
+	
+	if anim_name == 'attack_up' or anim_name == 'attack_down' or anim_name == 'attack_left' or anim_name == 'attack_right':
+		can_attack = true
 
 
 func _on_hurtbox_zero():
 	death()
-
-
-func _on_attack_timer_timeout():
-	can_attack = true
