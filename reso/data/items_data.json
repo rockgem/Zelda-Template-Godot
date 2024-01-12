@@ -32,21 +32,21 @@
 	"noob_helm": {
 		"id": "noob_helm",
 		"name": "Noob Helm",
-		"price": 25
+		"price": 150
 	},
 	"noob_armor": {
 		"id": "noob_armor",
 		"name": "Noob Armor",
-		"price": 25
+		"price": 200
 	},
 	"noob_pants": {
 		"id": "noob_pants",
 		"name": "Noob Pants",
-		"price": 25
+		"price": 65
 	},
 	"noob_boots": {
 		"id": "noob_boots",
 		"name": "Noob Boots",
-		"price": 25
+		"price": 30
 	}
 }

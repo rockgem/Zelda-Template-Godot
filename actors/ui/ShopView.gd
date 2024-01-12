@@ -23,6 +23,8 @@ func _ready():
 		i.tapped.connect(on_item_tapped)
 		
 		list.add_child(i)
+	
+	update_display()
 
 
 func update_display():
@@ -38,6 +40,11 @@ func on_item_tapped(data):
 	$InfoPanel/Box/Icon.texture = load("res://reso/icons/items/%s.tres" % data['id'])
 	$InfoPanel/Box/ItemName.text = '%s' % data['name']
 	#$InfoPanel/Box/ItemType.text = ''
+	
+	if ManagerGame.player_data['gold'] < current_item_selected['price']:
+		$InfoPanel/Buttons/Buy.disabled = true
+	else:
+		$InfoPanel/Buttons/Buy.disabled = false
 
 
 func _on_buy_pressed():
@@ -45,3 +52,11 @@ func _on_buy_pressed():
 		return
 	
 	ManagerGame.put_item_to_inv(current_item_selected['id'])
+	
+	ManagerGame.player_data['gold'] -= current_item_selected['price']
+	if ManagerGame.player_data['gold'] < current_item_selected['price']:
+		$InfoPanel/Buttons/Buy.disabled = true
+	else:
+		$InfoPanel/Buttons/Buy.disabled = false
+	
+	update_display()
