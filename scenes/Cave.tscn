@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh065oi1hsr60"]
+[gd_scene load_steps=9 format=3 uid="uid://bh065oi1hsr60"]
 
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_aw5p5"]
 [ext_resource type="TileSet" uid="uid://wwsptc10vqkx" path="res://reso/tileset.tres" id="2_fw4fo"]
 [ext_resource type="PackedScene" uid="uid://t2syaypmbg8d" path="res://actors/entities/Player.tscn" id="3_nsbav"]
 [ext_resource type="PackedScene" uid="uid://cjlyt4fuldk2b" path="res://actors/components/Portal.tscn" id="4_fn18k"]
+[ext_resource type="PackedScene" uid="uid://cs1hd7tiltgtq" path="res://actors/entities/Monster.tscn" id="5_mvvax"]
+[ext_resource type="Script" path="res://actors/components/WanderArea.gd" id="6_2abut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4de2i"]
+size = Vector2(108, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jl0l"]
+size = Vector2(82, 114)
 
 [node name="Cave" type="Node2D"]
 y_sort_enabled = true
@@ -36,3 +44,27 @@ position = Vector2(537, 333)
 [node name="Portal" parent="." instance=ExtResource("4_fn18k")]
 position = Vector2(142, 325)
 towards = "World3"
+
+[node name="Monster" parent="." node_paths=PackedStringArray("wander_area") instance=ExtResource("5_mvvax")]
+position = Vector2(84, 60)
+id = "Slime"
+wander_area = NodePath("../WanderArea")
+
+[node name="Monster2" parent="." node_paths=PackedStringArray("wander_area") instance=ExtResource("5_mvvax")]
+position = Vector2(425, 216)
+id = "Slime"
+wander_area = NodePath("../WanderArea2")
+
+[node name="WanderArea" type="Area2D" parent="."]
+position = Vector2(101, 103)
+script = ExtResource("6_2abut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WanderArea"]
+shape = SubResource("RectangleShape2D_4de2i")
+
+[node name="WanderArea2" type="Area2D" parent="."]
+position = Vector2(423, 211)
+script = ExtResource("6_2abut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WanderArea2"]
+shape = SubResource("RectangleShape2D_4jl0l")
