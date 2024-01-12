@@ -21,6 +21,8 @@ func load_items():
 	for item in ManagerGame.player_data['inventory']:
 		var d = ManagerGame.player_data['inventory'][item]
 		list.get_child(count).display(d)
+		
+		count += 1
 	
 	#for item in ManagerGame.player_data['inventory']:
 		#var slot = load("res://actors/ui/InvSlot.tscn").instantiate()
