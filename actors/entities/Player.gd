@@ -8,6 +8,7 @@ var move_speed = 80.0
 @onready var cast = $Aim/RayCast2D
 
 var can_move = true
+var can_attack = true
 var is_attacking = false
 
 var hp = 5
@@ -56,6 +57,9 @@ func death():
 
 
 func attack():
+	if can_attack == false:
+		return
+	
 	var obj = cast.get_collider()
 	if obj:
 		obj.take_damage(1)
@@ -64,6 +68,9 @@ func attack():
 	
 	Sfx.play_sound('Slash')
 	playback.travel('attack')
+	
+	can_attack = false
+	$AttackTimer.start()
 
 
 func receive_damage(damage = 1):
@@ -81,3 +88,7 @@ func _on_animation_tree_animation_finished(anim_name):
 
 func _on_hurtbox_zero():
 	death()
+
+
+func _on_attack_timer_timeout():
+	can_attack = true
