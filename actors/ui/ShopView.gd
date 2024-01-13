@@ -10,6 +10,7 @@ var current_item_selected = null
 func _ready():
 	$InfoPanel/Box.hide()
 	$InfoPanel/Buttons/Buy.hide()
+	$InfoPanel/Price.hide()
 	
 	items_data = ManagerGame.get_data("res://reso/data/items_data.json")
 	var shop_items = ManagerGame.get_data("res://reso/data/shop_data.json")
@@ -36,9 +37,11 @@ func on_item_tapped(data):
 	
 	$InfoPanel/Box.show()
 	$InfoPanel/Buttons/Buy.show()
+	$InfoPanel/Price.show()
 	
 	$InfoPanel/Box/Icon.texture = load("res://reso/icons/items/%s.tres" % data['id'])
 	$InfoPanel/Box/ItemName.text = '%s' % data['name']
+	$InfoPanel/Price.text = '%s' % data['price']
 	#$InfoPanel/Box/ItemType.text = ''
 	
 	if ManagerGame.player_data['gold'] < current_item_selected['price']:
@@ -60,3 +63,7 @@ func _on_buy_pressed():
 		$InfoPanel/Buttons/Buy.disabled = false
 	
 	update_display()
+
+
+func _on_close_pressed():
+	get_parent().close()

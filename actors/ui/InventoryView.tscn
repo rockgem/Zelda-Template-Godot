@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://52qy853nmdjc"]
+[gd_scene load_steps=8 format=3 uid="uid://52qy853nmdjc"]
 
 [ext_resource type="PackedScene" uid="uid://b8l8jexbrq2wp" path="res://actors/ui/PopupBase.tscn" id="1_xs2nd"]
 [ext_resource type="StyleBox" uid="uid://bi7lgaj82vpp1" path="res://reso/styles/panel_brown.tres" id="2_b0aqe"]
 [ext_resource type="Script" path="res://actors/ui/InventoryView.gd" id="2_vvsl0"]
 [ext_resource type="PackedScene" uid="uid://di3mnembiktld" path="res://actors/ui/InvSlot.tscn" id="4_27xk8"]
 [ext_resource type="Texture2D" uid="uid://b21pd7wlp5b5y" path="res://reso/icons/items/sword.tres" id="5_wjuf5"]
+[ext_resource type="Texture2D" uid="uid://bk0m3v6kwsswp" path="res://assets/GUI.png" id="6_amt4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kevu7"]
+atlas = ExtResource("6_amt4h")
+region = Rect2(48, 64, 16, 16)
 
 [node name="PopupBase" instance=ExtResource("1_xs2nd")]
 
@@ -149,3 +154,21 @@ text = "Item name"
 layout_mode = 2
 theme_override_font_sizes/font_size = 6
 text = "Common"
+
+[node name="Close" type="TextureButton" parent="Panel" index="3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 9.0
+offset_right = -8.0
+offset_bottom = 25.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_kevu7")
+texture_pressed = SubResource("AtlasTexture_kevu7")
+texture_hover = SubResource("AtlasTexture_kevu7")
+texture_disabled = SubResource("AtlasTexture_kevu7")
+texture_focused = SubResource("AtlasTexture_kevu7")
+
+[connection signal="pressed" from="Panel/Close" to="Panel" method="_on_close_pressed"]

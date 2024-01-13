@@ -40,3 +40,7 @@ func on_tapped(data):
 	
 	$InfoPanel/Box/VBoxContainer/ItemName.text = data['name']
 	$InfoPanel/Box/Icon.texture = load("res://reso/icons/items/%s.tres" % data['id'])
+
+
+func _on_close_pressed():
+	get_parent().close()

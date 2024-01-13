@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g6bax3nksfl4"]
+[gd_scene load_steps=10 format=3 uid="uid://g6bax3nksfl4"]
 
 [ext_resource type="PackedScene" uid="uid://b8l8jexbrq2wp" path="res://actors/ui/PopupBase.tscn" id="1_ditdu"]
 [ext_resource type="StyleBox" uid="uid://bi7lgaj82vpp1" path="res://reso/styles/panel_brown.tres" id="2_88g21"]
@@ -6,10 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://b21pd7wlp5b5y" path="res://reso/icons/items/sword.tres" id="4_6fgnd"]
 [ext_resource type="Texture2D" uid="uid://co04mmpw2fo4w" path="res://assets/items.png" id="4_pdiyc"]
 [ext_resource type="PackedScene" uid="uid://c57i2dkd78g6f" path="res://actors/ui/CustomButton.tscn" id="5_1oa4c"]
+[ext_resource type="Texture2D" uid="uid://bk0m3v6kwsswp" path="res://assets/GUI.png" id="7_e3sh3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0dtd"]
 atlas = ExtResource("4_pdiyc")
 region = Rect2(304, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7td6h"]
+atlas = ExtResource("7_e3sh3")
+region = Rect2(48, 64, 16, 16)
 
 [node name="PopupBase" instance=ExtResource("1_ditdu")]
 
@@ -151,4 +156,47 @@ alignment = 1
 layout_mode = 2
 text = "Buy"
 
+[node name="Price" type="Label" parent="Panel/InfoPanel" index="2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_top = 14.0
+offset_right = -11.0
+offset_bottom = 26.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "9"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Panel/InfoPanel/Price" index="0"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -8.0
+offset_right = -3.0
+offset_bottom = 8.0
+grow_vertical = 2
+texture = SubResource("AtlasTexture_y0dtd")
+
+[node name="Close" type="TextureButton" parent="Panel" index="4"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = 9.0
+offset_right = -8.0
+offset_bottom = 25.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_7td6h")
+texture_pressed = SubResource("AtlasTexture_7td6h")
+texture_hover = SubResource("AtlasTexture_7td6h")
+texture_disabled = SubResource("AtlasTexture_7td6h")
+texture_focused = SubResource("AtlasTexture_7td6h")
+
 [connection signal="pressed" from="Panel/InfoPanel/Buttons/Buy" to="Panel" method="_on_buy_pressed"]
+[connection signal="pressed" from="Panel/Close" to="Panel" method="_on_close_pressed"]
