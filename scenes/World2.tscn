@@ -12,6 +12,7 @@ script = ExtResource("1_lnmnn")
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = ExtResource("2_5tb5n")
+collision_visibility_mode = 1
 format = 2
 layer_0/name = "ground"
 layer_0/y_sort_enabled = true
