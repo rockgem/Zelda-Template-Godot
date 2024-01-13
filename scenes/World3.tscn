@@ -18,7 +18,7 @@ position = Vector2(630, 247)
 towards = "World"
 
 [node name="Portal2" parent="." instance=ExtResource("4_j5w74")]
-position = Vector2(248, 148)
+position = Vector2(248, 149)
 towards = "Cave"
 
 [node name="Sort" type="Node2D" parent="."]
