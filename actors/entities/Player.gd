@@ -29,6 +29,8 @@ func _unhandled_input(event):
 		attack()
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+	if Input.is_action_just_pressed("bomb_place"):
+		bomb_place()
 
 
 func _physics_process(delta):
@@ -94,6 +96,12 @@ func shoot():
 	projectile.direction = dir
 	
 	ManagerGame.global_world_ref.spawn_obj(projectile, global_position)
+
+
+func bomb_place():
+	var bomb = load("res://actors/objects/Bomb.tscn").instantiate()
+	
+	ManagerGame.global_world_ref.spawn_obj(bomb, global_position)
 
 
 func receive_damage(damage = 1):
