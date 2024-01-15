@@ -21,6 +21,7 @@ size = Vector2(134, 140)
 script = ExtResource("1_42b4e")
 
 [node name="TL" type="Node2D" parent="."]
+position = Vector2(-47, -70)
 
 [node name="BR" type="Node2D" parent="."]
 position = Vector2(543, 287)

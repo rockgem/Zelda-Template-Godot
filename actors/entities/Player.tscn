@@ -410,5 +410,9 @@ collision_mask = 8
 hit_from_inside = true
 collide_with_areas = true
 
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
 [connection signal="zero" from="Hurtbox" to="." method="_on_hurtbox_zero"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

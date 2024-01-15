@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://dfh88fg0wip27"]
+
+[ext_resource type="Script" path="res://actors/objects/Projectile.gd" id="1_3iubn"]
+[ext_resource type="Texture2D" uid="uid://cebiud7k7kqif" path="res://assets/objects.png" id="1_fslnl"]
+
+[sub_resource type="Animation" id="Animation_yu43p"]
+resource_name = "rotate"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_xfah7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gcdqw"]
+_data = {
+"RESET": SubResource("Animation_xfah7"),
+"rotate": SubResource("Animation_yu43p")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ujf3"]
+radius = 5.0
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_3iubn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fslnl")
+region_enabled = true
+region_rect = Rect2(288, 64, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gcdqw")
+}
+autoplay = "rotate"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_5ujf3")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

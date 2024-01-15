@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var move_speed = 80.0
+var dir
 
 @onready var cam = $Camera2D
 @onready var tree = $AnimationTree
@@ -9,10 +10,10 @@ var move_speed = 80.0
 
 var can_move = true
 var can_attack = true
+var can_shoot = true
 var is_attacking = false
 
 var hp = 5
-
 
 func _ready():
 	ManagerGame.player_movement_activate.connect(on_player_movement_activate)
@@ -25,6 +26,8 @@ func _ready():
 func _unhandled_input(event):
 	if Input.is_action_just_pressed("attack"):
 		attack()
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
 
 
 func _physics_process(delta):
@@ -44,6 +47,8 @@ func _physics_process(delta):
 		$Aim.rotation = velocity.angle()
 		
 		playback.travel('walk')
+		
+		dir = global_position.direction_to(global_position + velocity)
 	else:
 		playback.travel('idle')
 	
@@ -73,7 +78,16 @@ func attack():
 
 
 func shoot():
-	pass
+	if can_shoot == false:
+		return
+	
+	$ShootTimer.start()
+	can_shoot = false
+	
+	var projectile = load("res://actors/objects/Projectile.tscn").instantiate()
+	projectile.direction = dir
+	
+	ManagerGame.global_world_ref.spawn_obj(projectile, global_position)
 
 
 func receive_damage(damage = 1):
@@ -94,3 +108,7 @@ func _on_animation_tree_animation_finished(anim_name):
 
 func _on_hurtbox_zero():
 	death()
+
+
+func _on_shoot_timer_timeout():
+	can_shoot = true
