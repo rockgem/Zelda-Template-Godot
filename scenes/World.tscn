@@ -109,4 +109,4 @@ id = "Slime"
 wander_area = NodePath("../../WanderArea2")
 
 [node name="Stone" parent="Sort" instance=ExtResource("8_6sc1r")]
-position = Vector2(141, 95)
+position = Vector2(298, 26)
