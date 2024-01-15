@@ -10,6 +10,9 @@ func explode():
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play('boom')
 	
+	for body in $Area2D.get_overlapping_areas():
+		body.take_damage(1)
+	
 	await $AnimatedSprite2D.animation_finished
 	
 	queue_free()
