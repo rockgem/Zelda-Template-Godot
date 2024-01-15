@@ -50,6 +50,10 @@ func load_game():
 
 
 func put_item_to_inv(item_id, amount = 1):
+	if item_id == 'coin':
+		player_data['gold'] += amount
+		return
+	
 	var item_data = items_data[item_id].duplicate()
 	
 	if player_data['inventory'].has(item_id):

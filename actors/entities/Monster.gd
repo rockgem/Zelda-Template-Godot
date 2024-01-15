@@ -79,6 +79,13 @@ func _on_hurtbox_zero():
 			
 			ManagerGame.global_world_ref.spawn_obj(i, global_position)
 	
+	var range = randi_range(monster_data['gold_on_kill'][0], monster_data['gold_on_kill'][1])
+	for idx in range:
+		var i = load("res://actors/Item.tscn").instantiate()
+		i.item_id = 'coin'
+		
+		ManagerGame.global_world_ref.spawn_obj(i, global_position)
+	
 	queue_free()
 
 

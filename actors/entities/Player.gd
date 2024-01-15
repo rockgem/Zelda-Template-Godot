@@ -72,6 +72,10 @@ func attack():
 	can_attack = false
 
 
+func shoot():
+	pass
+
+
 func receive_damage(damage = 1):
 	print('player took a hit!')
 	$Hurtbox.take_damage(damage)
