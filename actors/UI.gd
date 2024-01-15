@@ -16,13 +16,23 @@ func pop_to_ui(instance, stack = false):
 
 
 func update_hp():
-	for child in $Hearts.get_children():
-		child.queue_free()
+	var max_to_display = 6
 	
-	for i in ManagerGame.player_data['hp']:
+	for child in $Hearts.get_children():
+		if child is TextureRect:
+			child.queue_free()
+	
+	for i in clamp(ManagerGame.player_data['hp'], 0, max_to_display):
 		var h = TextureRect.new()
 		h.texture = load("res://reso/icons/heart.tres")
-		$Hearts.add_child(h)
+		$Hearts/Control.add_sibling(h)
+	
+	if ManagerGame.player_data['hp'] > max_to_display:
+		$Hearts/HealthAmount.show()
+	else:
+		$Hearts/HealthAmount.hide()
+	
+	$Hearts/HealthAmount.text = 'x%s' % ManagerGame.player_data['hp']
 
 
 func _on_bag_pressed():
