@@ -105,8 +105,10 @@ func bomb_place():
 
 
 func receive_damage(damage = 1):
-	print('player took a hit!')
 	$Hurtbox.take_damage(damage)
+	
+	ManagerGame.player_data['hp'] -= damage
+	ManagerGame.hp_changed.emit()
 
 
 func on_player_movement_activate(b):

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://df5qfikesj8sv"]
+[gd_scene load_steps=4 format=3 uid="uid://df5qfikesj8sv"]
 
 [ext_resource type="Script" path="res://actors/UI.gd" id="1_fmsof"]
 [ext_resource type="PackedScene" uid="uid://c57i2dkd78g6f" path="res://actors/ui/CustomButton.tscn" id="2_mjuc2"]
+[ext_resource type="Texture2D" uid="uid://fwwhhuoxvapv" path="res://reso/icons/heart.tres" id="3_6rljl"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -27,5 +28,28 @@ offset_right = 43.0
 offset_bottom = -4.0
 grow_vertical = 0
 text = "bag"
+
+[node name="Hearts" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 81.0
+offset_bottom = 21.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_6rljl")
+
+[node name="TextureRect2" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_6rljl")
+
+[node name="TextureRect3" type="TextureRect" parent="Hearts"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("3_6rljl")
 
 [connection signal="pressed" from="Bag" to="." method="_on_bag_pressed"]
