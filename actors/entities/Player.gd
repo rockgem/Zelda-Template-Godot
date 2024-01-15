@@ -14,6 +14,7 @@ var can_shoot = true
 var is_attacking = false
 
 var hp = 5
+var push_force = 8000
 
 func _ready():
 	ManagerGame.player_movement_activate.connect(on_player_movement_activate)
@@ -54,7 +55,12 @@ func _physics_process(delta):
 	
 	velocity.normalized()
 	
-	move_and_slide()
+	if move_and_slide():
+		for i in get_slide_collision_count():
+			var col = get_slide_collision(i)
+			if col.get_collider() is RigidBody2D:
+				#col.get_collider().get_parent().global_position += col.get_normal() * -push_force
+				col.get_collider().apply_force(col.get_normal() * -push_force)
 
 
 func death():

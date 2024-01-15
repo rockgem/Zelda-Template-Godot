@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cunjdb63oyha"]
+[gd_scene load_steps=13 format=3 uid="uid://cunjdb63oyha"]
 
 [ext_resource type="Script" path="res://scenes/World.gd" id="1_42b4e"]
 [ext_resource type="TileSet" uid="uid://wwsptc10vqkx" path="res://reso/tileset.tres" id="2_5v0jk"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjlyt4fuldk2b" path="res://actors/components/Portal.tscn" id="4_sdbua"]
 [ext_resource type="PackedScene" uid="uid://cs1hd7tiltgtq" path="res://actors/entities/Monster.tscn" id="5_ui1hj"]
 [ext_resource type="PackedScene" uid="uid://yhu1pbhujek" path="res://actors/entities/NPCShop.tscn" id="7_miqp8"]
+[ext_resource type="PackedScene" uid="uid://c8rskjtglcoav" path="res://actors/objects/Stone.tscn" id="8_6sc1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxxl8"]
 size = Vector2(188, 56)
@@ -16,6 +17,9 @@ size = Vector2(188, 106)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mylva"]
 size = Vector2(134, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpxxq"]
+size = Vector2(394, 20)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_42b4e")
@@ -51,6 +55,13 @@ position = Vector2(434, 145)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WanderArea3"]
 shape = SubResource("RectangleShape2D_mylva")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(162, -215)
+rotation = 0.249582
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_xpxxq")
 
 [node name="Sort" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -96,3 +107,6 @@ wander_area = NodePath("../../WanderArea3")
 position = Vector2(151, 227)
 id = "Slime"
 wander_area = NodePath("../../WanderArea2")
+
+[node name="Stone" parent="Sort" instance=ExtResource("8_6sc1r")]
+position = Vector2(141, 95)
